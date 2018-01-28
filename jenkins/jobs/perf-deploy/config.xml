@@ -61,7 +61,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.BatchFile>
-      <command>windows\deploy.bat &quot;C:\applications\petclinic\environments\dev&quot;</command>
+      <command>windows\deploy.bat &quot;C:\applications\petclinic\environments\perf&quot;</command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers>

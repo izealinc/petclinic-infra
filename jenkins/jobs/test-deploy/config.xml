@@ -40,7 +40,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:sasi9k/petclinic-infra.git</url>
+        <url>git@github.com:izealinc/petclinic-infra.git</url>
         <credentialsId></credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>

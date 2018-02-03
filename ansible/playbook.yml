@@ -1,0 +1,11 @@
+---
+- name: "apply mongo db to the node"
+  gather_facts: true
+  hosts: webserver 
+  tasks:
+  - name: "create target directory"
+    file: path=/tmp/webserver state=directory
+  - name: "download petclinic from Nexus"
+    get_url:
+      dest: /tmp/webserver/
+      url: "http://192.168.1.201:8081/repository/maven-releases/org/springframework/samples/spring-petclinic/1.5.1/spring-petclinic-1.5.1.jar"

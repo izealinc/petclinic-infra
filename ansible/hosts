@@ -1,11 +1,8 @@
-[defaults]
-localhost
-
 [db]
 localhost
 
 [webserver]
-localhost ansible_connection=ssh 
+localhost
 
 [db:vars]
 targetdir=/tmp/db

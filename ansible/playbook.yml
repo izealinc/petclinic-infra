@@ -3,7 +3,8 @@
   gather_facts: true
   hosts: webserver 
   vars:
-    targeturl: http://192.168.1.201:8081/repository/maven-releases/org/springframework/samples/spring-petclinic/1.5.1/spring-petclinic-1.5.1.jar 
+    targeturl: http://192.168.1.6:8081/repository/maven-releases/org/springframework/samples/spring-petclinic/1.5.1/spring-petclinic-1.5.1.jar
+
     targetdir: /tmp/webserver
   tasks:
   - name: "create target directory"

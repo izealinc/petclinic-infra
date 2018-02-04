@@ -5,7 +5,7 @@ localhost
 localhost
 
 [webserver]
-localhost
+localhost ansible_connection=ssh 
 
 [db:vars]
 targetdir=/tmp/db

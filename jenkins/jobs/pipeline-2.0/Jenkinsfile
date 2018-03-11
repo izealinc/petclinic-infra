@@ -8,11 +8,23 @@ node {
         }
         for(i=1; i <= 4; i++) {
             String currentEnv = 'Env ' + i
-            processStage(currentEnv)
+            stage("Deploy application to ${currentEnv}") {
+                echo 'Hello World'
+            }
+            stage("Losd rules metadata for ${currentEnv}") {
+                echo 'Hello World'
+            }
+            stage("Determine Itinerary for ${currentEnv}") {
+                echo 'Hello World'
+            }
+
+
+           // processStage(currentEnv)
         }
     }
 }
 
+/*
 def processStage(String currentEnv) {
     stage("Deploy application to ${currentEnv}") {
         echo 'Hello World'
@@ -23,4 +35,4 @@ def processStage(String currentEnv) {
     stage("Determine Itinerary for ${currentEnv}") {
         echo 'Hello World'
     }
-}
+}*/

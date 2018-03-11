@@ -14,13 +14,13 @@ node {
 }
 
 def processStage(String currentEnv) {
-    stage('Deploy application to ${currentEnv}') {
+    stage("Deploy application to ${currentEnv}") {
         echo 'Hello World'
     }
-    stage('Losd rules metadata for ${currentEnv}') {
+    stage("Losd rules metadata for ${currentEnv}") {
         echo 'Hello World'
     }
-    stage('Determine Itinerary for ${currentEnv}') {
+    stage("Determine Itinerary for ${currentEnv}") {
         echo 'Hello World'
     }
 }

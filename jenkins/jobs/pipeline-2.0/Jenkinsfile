@@ -6,7 +6,9 @@ node {
         stage('Perform Application build') {
             echo 'Building petclinic project'
             git credentialsId: 'd8ebe5d2-4472-4c95-a644-1ab88805b2b1', poll: false, url: 'https://github.com/izealinc/petclinic.git'
-            bat 'mvn -f petclinic/pom.xml package'
+            dir('petclinc') {
+                bat '.\\mvnw versions:set -DnewVersion=1.5.1-SNAPSHOT'
+            }
         }
         for(i=1; i <= 4; i++) {
             String currentEnv = 'Env ' + i

@@ -1,3 +1,22 @@
 node {
-    echo 'Hello World'
+    timestamps {
+        stage('Determine Itinerary for pipeline') {
+            echo 'Hello World'
+        }
+        stage('Perform Application build') {
+            echo 'Hello World'
+        }
+        for(i=1; i <= 4; i++) {
+            currentEnv = 'Env ' + i
+            stage('Deploy application to ${currentEnv}') {
+                echo 'Hello World'
+            }
+            stage('Losd rules metadata for ${currentEnv}') {
+                echo 'Hello World'
+            }
+            stage('Determine Itinerary for ${currentEnv}') {
+                echo 'Hello World'
+            }
+        }
+    }
 }

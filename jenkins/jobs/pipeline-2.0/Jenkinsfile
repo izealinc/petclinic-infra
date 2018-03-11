@@ -7,7 +7,7 @@ node {
             echo 'Hello World'
         }
         for(i=1; i <= 4; i++) {
-            currentEnv = 'Env ' + i
+            String currentEnv = 'Env ' + i
             stage('Deploy application to ${currentEnv}') {
                 echo 'Hello World'
             }

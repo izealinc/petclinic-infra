@@ -1,4 +1,17 @@
 
+/*node {
+    timestamps {
+        deleteDir()
+        stage('Determine Itinerary for pipeline') {
+            echo 'Hello World'
+        }
+        stage('Perform Application build') {
+            echo 'Building petclinic project'
+        }*/
+
+def src = 'https://github.com/izealinc/petclinic.git'
+
+Stage 'Build'
 node {
     timestamps {
         deleteDir()
@@ -8,13 +21,6 @@ node {
         stage('Perform Application build') {
             echo 'Building petclinic project'
         }
-
-def src = 'https://github.com/izealinc/petclinic.git'
-
-Stage 'Build'
-node {
-    timestamps {
-        echo 'Building petclinic project'
     }
     bat 'javac -version'
     git credentialsId: 'd8ebe5d2-4472-4c95-a644-1ab88805b2b1', poll: false, url: src
@@ -22,7 +28,7 @@ node {
     bat ".\\mvnw versions:set -DnewVersion=1.5.1-SNAPSHOT"
     bat ".\\mvnw package"
 }
-        try{
+    /*    try{
              wrap([$class: 'AnsiColorBuildWrapper']) {
                 " Change color \u001B[31m I'm Red \u2717 \u001B[0m Now not "
                 }
@@ -30,7 +36,7 @@ node {
         } catch (Exception e){
             echo 'Lets move on after the exception'
         }
-
+*/
         for(i=1; i <= 4; i++) {
             String currentEnv = 'Env ' + i
             stage("Deploy application to ${currentEnv}") {
@@ -46,8 +52,6 @@ node {
 
            // processStage(currentEnv)
         }
-    }
-}
 
 /*
 def processStage(String currentEnv) {

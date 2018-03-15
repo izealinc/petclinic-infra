@@ -1,3 +1,4 @@
+
 node {
     timestamps {
         deleteDir()
@@ -6,13 +7,24 @@ node {
         }
         stage('Perform Application build') {
             echo 'Building petclinic project'
-            git credentialsId: 'd8ebe5d2-4472-4c95-a644-1ab88805b2b1', poll: false, url: 'https://github.com/izealinc/petclinic.git'
-            bat ".\\mvnw versions:set -DnewVersion=1.5.1-SNAPSHOT"
-            bat ".\\mvnw package"
         }
+
+def src = 'https://github.com/izealinc/petclinic.git'
+
+Stage 'Build'
+node {
+    timestamps {
+        echo 'Building petclinic project'
+    }
+    bat 'javac -version'
+    git credentialsId: 'd8ebe5d2-4472-4c95-a644-1ab88805b2b1', poll: false, url: src
+    bat 'maven -f build.xml proj.jar report'
+    bat ".\\mvnw versions:set -DnewVersion=1.5.1-SNAPSHOT"
+    bat ".\\mvnw package"
+}
         try{
              wrap([$class: 'AnsiColorBuildWrapper']) {
-                stage (" Change color \u001B[31m I'm Red \u2717 \u001B[0m Now not {currentEnv} "){
+                " Change color \u001B[31m I'm Red \u2717 \u001B[0m Now not "
                 }
             }
         } catch (Exception e){

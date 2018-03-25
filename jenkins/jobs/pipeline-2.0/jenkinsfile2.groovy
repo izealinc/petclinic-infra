@@ -1,7 +1,8 @@
 
 pipeline {
     agent any
-    ex = load 'ex.groovy'
+    def rootDir = pwd()
+    def ex = load "${rootDir}/ex.groovy"
     stages {
         stage ('Compile Stage') {
 

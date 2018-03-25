@@ -1,25 +1,25 @@
 
 pipeline {
     agent any
-
+    ex = load 'ex.groovy'
     stages {
         stage ('Compile Stage') {
 
             steps {
                 echo 'building petclinic project'
-                withMaven() {
+               // withMaven() {
                     bat 'mvn clean compile'
-                }
+              //  }
             }
         }
 
         stage ('Testing Stage') {
 
             steps {
-                echo 'hello world'
-                withMaven() {
+                ex.printStr('hello world')
+               // withMaven() {
                     bat 'mvn test'
-                }
+               // }
             }
         }
 
@@ -27,9 +27,9 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
                 echo 'hello world'
-                withMaven() {
+              //  withMaven() {
                     bat 'mvn deploy'
-                }
+               // }
             }
         }
     }

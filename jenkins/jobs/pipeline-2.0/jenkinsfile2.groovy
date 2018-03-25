@@ -6,7 +6,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                echo 'building petclinic project'
+                ex.printStr 'building petclinic project'
                // withMaven() {
                     bat 'mvn clean compile'
               //  }

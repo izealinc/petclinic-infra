@@ -4,6 +4,7 @@ node {
         deleteDir()
 
         dir("jenkins/jobs/pipeline-2.0") {
+            bat "dir"
             def ex = load "ex.groovy"
             ex.printStr 'building petclinic project'
         }

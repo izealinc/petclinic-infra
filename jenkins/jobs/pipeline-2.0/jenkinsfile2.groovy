@@ -1,12 +1,11 @@
 
 pipeline {
     agent any
-    def rootDir = pwd()
-    def ex = load "${rootDir}/ex.groovy"
     stages {
         stage ('Compile Stage') {
-
             steps {
+                def rootDir = pwd()
+                def ex = load "${rootDir}/ex.groovy"
                 ex.printStr 'building petclinic project'
                // withMaven() {
                     bat 'mvn clean compile'

@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage ('Compile Stage') {
             steps {
-                def rootDir = pwd()
-                def ex = load "${rootDir}/ex.groovy"
-                ex.printStr 'building petclinic project'
+                echo 'building petclinic project'
                // withMaven() {
                     bat 'mvn clean compile'
               //  }

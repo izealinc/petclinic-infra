@@ -1,7 +1,11 @@
-/*
+
 node {
     timestamps {
         deleteDir()
+        def rootDir = pwd()
+        def ex = load "${rootDir}/ex.groovy"
+        ex.printStr 'building petclinic project'
+
         stage('Determine Itinerary for pipeline') {
             echo 'Hello World'
         }
@@ -15,7 +19,6 @@ node {
              wrap([$class: 'AnsiColorBuildWrapper']) {
                 " Change color \u001B[31m I'm Red \u2717 \u001B[0m Now not "
                 }
-            }
         } catch (Exception e){
             echo 'Lets move on after the exception'
         }
@@ -38,9 +41,6 @@ node {
     }
 }
 
-*/
-/*
-
 def processStage(String currentEnv) {
     stage("Deploy application to ${currentEnv}") {
         echo 'Hello World'
@@ -52,5 +52,3 @@ def processStage(String currentEnv) {
         echo 'Hello World'
     }
 }
-
-*/

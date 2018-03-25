@@ -3,7 +3,7 @@ node {
     timestamps {
         deleteDir()
         def rootDir = pwd()
-        def ex = load "ex.groovy"
+        def ex = load "${rootDir}@script/ex.groovy"
         ex.printStr 'building petclinic project'
 
         stage('Determine Itinerary for pipeline') {
